@@ -30,3 +30,12 @@ for d in data:
 print('留言字數低於 100 的總共有', len(new), '筆資料')
 print(new[0])
 print(new[1])
+
+# 篩選留言內有包含 good 的筆數
+good = []
+for d in data:
+    if 'good' in d: # 如果 good 有在 d 裡面則為 True
+        good.append(d)
+print('一共有', len(good), '筆留言提到 good')
+print(good[0])
+print(good[1])
