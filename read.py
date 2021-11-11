@@ -38,4 +38,32 @@ for d in data:
         good.append(d)
 print('一共有', len(good), '筆留言提到 good')
 print(good[0])
-print(good[1])
+
+# 篩選 good 字串功能, 清單快寫法(list comprehension)
+
+#              運算          變數       清單           篩選條件
+#               ↓             ↓          ↓                ↓
+# output = [(number-1) for number in reference if number % 2 == 0]
+
+#       d for d 的 前面的 d 是 good.append(d) 的 d
+#       ↓
+good = [d for d in data if 'good' in d]
+
+# bad = []                            # 
+# for d in data:                      #
+#     bad.append('bad' in d)          #
+
+# bad = ['bad' in d for d in data] # 53 - 55 快寫法 list comprehension
+# print(bad[0])
+# print('一共有', len(bad), '筆留言提到 bad')
+
+
+bad = []                            # 
+for d in data:                      #
+    bad.append(d)                   #
+
+# bad = ['bad' in d for d in data] # 53 - 55 快寫法 list comprehension
+bad = [d for d in data if 'bad' in d] # 53 - 55 快寫法 list comprehension
+
+print(bad[0])
+print('一共有', len(bad), '筆留言提到 bad')
