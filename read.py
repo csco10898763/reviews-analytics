@@ -9,10 +9,13 @@ with open('reviews.txt', 'r') as f:
         if count % 10000 == 0:
             print(len(data))
 print('檔案讀取完了,總共有', len(data), '筆資料')
-# print('-------------------')
-# print(data[0])
-# print('-------------------')
-# print(data[1])
+
+print(data[0])
+
+print('-------------------')
+print(data[0])
+print('-------------------')
+print(data[1])
 sum_len = 0
 for d in data:
     sum_len += len(d)
@@ -67,3 +70,32 @@ bad = [d for d in data if 'bad' in d] # 53 - 55 快寫法 list comprehension
 
 print(bad[0])
 print('一共有', len(bad), '筆留言提到 bad')
+
+
+# 文字計數
+
+wc = {} # word_count
+for d in data:
+    words = d.split()
+    for word in words:
+        if word in wc:    # 判斷 讀進來的字串有沒有在 wc 字典內 if word in wc:
+            wc[word] += 1
+        else:
+            wc[word] = 1 # 新增新的 key 進 wc 字典
+
+for word in wc:
+    if wc[word] > 1000000:     
+        print(word, wc[word])   
+
+print(len(wc))
+print(wc['Allen'])
+
+while True:             # 無限迴圈
+    word = input('\n請問你想查什麼字：')
+    if word == 'q':
+        break
+    if word in wc:
+        print(word, '\n出現過的次數', wc[word])
+    else:
+        print('這個字沒有出現過喔 !!!')
+print('\n感謝使用本查詢功能')
